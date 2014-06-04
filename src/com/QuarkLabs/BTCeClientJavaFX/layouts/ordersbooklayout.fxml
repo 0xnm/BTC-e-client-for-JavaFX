@@ -18,7 +18,7 @@
   ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   -->
 
-<?import com.QuarkLabs.BTCeClientJavaFX.cellfactories.CenteredCellFactory?>
+<?import com.QuarkLabs.BTCeClientJavaFX.cellfactories.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
