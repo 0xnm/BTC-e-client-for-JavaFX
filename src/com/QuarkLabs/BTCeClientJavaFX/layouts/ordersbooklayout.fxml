@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  ~ BTC-e client for JavaFX
+  ~ Copyright (C) 2014  QuarkDev Solutions <quarkdev.solutions@gmail.com>
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<?import com.QuarkLabs.BTCeClientJavaFX.cellfactories.CenteredCellFactory?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity"
+            minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/2.2" fx:controller="com.QuarkLabs.BTCeClientJavaFX.OrdersBookController">
+    <children>
+        <GridPane layoutX="0.0" layoutY="0.0" prefHeight="400.0" prefWidth="600.0">
+            <children>
+                <Label text="BIDS" textAlignment="LEFT" GridPane.columnIndex="0" GridPane.halignment="CENTER"
+                       GridPane.rowIndex="0" GridPane.valignment="CENTER">
+                    <font>
+                        <Font name="System Bold" size="14.0" fx:id="x1"/>
+                    </font>
+                </Label>
+                <Label font="$x1" text="ASKS" GridPane.columnIndex="1" GridPane.halignment="CENTER"
+                       GridPane.rowIndex="0" GridPane.valignment="CENTER"/>
+                <TableView fx:id="bidsTable" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="0"
+                           GridPane.rowIndex="1">
+                    <columns>
+                        <TableColumn prefWidth="100.0" text="Price" fx:id="bidsTablePriceColumn">
+                            <cellFactory>
+                                <CenteredCellFactory decimal="true"/>
+                            </cellFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="100.0" text="Volume" fx:id="bidsTableVolumeColumn">
+                            <cellFactory>
+                                <CenteredCellFactory decimal="true"/>
+                            </cellFactory>
+                        </TableColumn>
+                    </columns>
+                </TableView>
+                <TableView fx:id="asksTable" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1"
+                           GridPane.rowIndex="1">
+                    <columns>
+                        <TableColumn prefWidth="100.0" text="Price" fx:id="asksTablePriceColumn">
+                            <cellFactory>
+                                <CenteredCellFactory decimal="true"/>
+                            </cellFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="100.0" text="Volume" fx:id="asksTableVolumeColumn">
+                            <cellFactory>
+                                <CenteredCellFactory decimal="true"/>
+                            </cellFactory>
+                        </TableColumn>
+                    </columns>
+                </TableView>
+            </children>
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="199.0" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="375.0" minHeight="10.0" prefHeight="361.0" vgrow="SOMETIMES"/>
+            </rowConstraints>
+        </GridPane>
+    </children>
+</AnchorPane>

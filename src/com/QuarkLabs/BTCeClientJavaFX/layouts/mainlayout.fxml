@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?scenebuilder-stylesheet ../style/JMetroLightTheme.css?>
+
+<!--
+  ~ BTC-e client for JavaFX
+  ~ Copyright (C) 2014  QuarkDev Solutions <quarkdev.solutions@gmail.com>
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<?import com.QuarkLabs.BTCeClientJavaFX.cellfactories.*?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import java.lang.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="484.0" prefWidth="1000.0" styleClass="background"
+            xmlns="http://javafx.com/javafx/2.2" fx:controller="com.QuarkLabs.BTCeClientJavaFX.MainController">
+    <children>
+        <Pane layoutX="0.0" layoutY="0.0" prefHeight="242.0" prefWidth="570.0" styleClass="background">
+            <children>
+                <Text layoutX="226.0" layoutY="21.0" scaleX="1.0" scaleY="1.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                      styleClass="text" text="Current statistics" textAlignment="CENTER">
+                    <font>
+                        <Font name="System Bold" size="18.0" fx:id="x1"/>
+                    </font>
+                </Text>
+                <TableView fx:id="tickersTable" layoutX="23.0" layoutY="36.0" prefHeight="192.0" prefWidth="528.0"
+                           tableMenuButtonVisible="false">
+                    <columns>
+                        <TableColumn prefWidth="132.0" text="Pair" fx:id="tickersTablePairColumn">
+                            <cellFactory>
+                                <CenteredCellFactory bold="true" uppercase="true"/>
+                            </cellFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="132.0" text="Last" fx:id="tickersTableLastColumn">
+                            <cellFactory>
+                                <CenteredCellFactory decimal="true"/>
+                            </cellFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="132.0" text="Buy" fx:id="tickersTableBuyColumn">
+                            <cellFactory>
+                                <CenteredCellFactory decimal="true"/>
+                            </cellFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="132.0" text="Sell" fx:id="tickersTableSellColumn">
+                            <cellFactory>
+                                <CenteredCellFactory decimal="true"/>
+                            </cellFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="132.0" text="2xFee" fx:id="tickersTableFeeColumn">
+                            <cellFactory>
+                                <CenteredCellFactory decimal="true"/>
+                            </cellFactory>
+                        </TableColumn>
+                    </columns>
+                </TableView>
+            </children>
+        </Pane>
+        <Pane layoutX="569.0" layoutY="0.0" prefHeight="242.0" prefWidth="431.0" styleClass="background">
+            <children>
+                <Text font="$x1" layoutX="162.0" layoutY="21.0" scaleX="1.0" scaleY="1.0" strokeType="OUTSIDE"
+                      strokeWidth="0.0" styleClass="text" text="Account info" textAlignment="CENTER"/>
+                <Button fx:id="updateFundsButton" contentDisplay="CENTER" layoutX="159.0" layoutY="216.0"
+                        mnemonicParsing="false" onAction="#updateFunds" prefWidth="118.37109375" text="Update"/>
+                <TableView fx:id="fundsTable" layoutX="14.0" layoutY="36.0" prefHeight="170.0" prefWidth="403.0">
+                    <columns>
+                        <TableColumn prefWidth="201.5" text="Currency" fx:id="fundsTableCurrencyColumn">
+                            <cellFactory>
+                                <CenteredCellFactory bold="true" uppercase="true"/>
+                            </cellFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="201.5" text="Value" fx:id="fundsTableValueColumn">
+                            <cellFactory>
+                                <CenteredCellFactory decimal="true"/>
+                            </cellFactory>
+                        </TableColumn>
+                    </columns>
+                </TableView>
+            </children>
+        </Pane>
+        <Pane layoutX="569.0" layoutY="242.0" prefHeight="242.0" prefWidth="431.0" styleClass="background">
+            <children>
+                <Button fx:id="showActiveOrdersButton" contentDisplay="CENTER" layoutX="146.0" layoutY="22.0"
+                        mnemonicParsing="false" onAction="#showActiveOrders" text="Show Active Orders"/>
+                <Button fx:id="clearLogButton" layoutX="171.0" layoutY="206.0" mnemonicParsing="false"
+                        onAction="#clearLog" text="Clear Log"/>
+                <TableView id="activeOrderTable" fx:id="activeOrdersTable" layoutX="14.0" layoutY="59.0"
+                           prefHeight="143.0" prefWidth="402.0">
+                    <columns>
+                        <TableColumn prefWidth="60.0" text="Pair" fx:id="activeOrdersPairColumn">
+                            <cellFactory>
+                                <CenteredCellFactory bold="true" uppercase="true"/>
+                            </cellFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="60.0" text="Type" fx:id="activeOrdersTypeColumn">
+                            <cellFactory>
+                                <CenteredCellFactory uppercase="true"/>
+                            </cellFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="60.0" text="Amount" fx:id="activeOrdersAmountColumn">
+                            <cellFactory>
+                                <CenteredCellFactory decimal="true"/>
+                            </cellFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="60.0" text="Rate" fx:id="activeOrdersRateColumn">
+                            <cellFactory>
+                                <CenteredCellFactory decimal="true"/>
+                            </cellFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="60.0" text="Time" fx:id="activeOrdersTimeColumn">
+                            <cellFactory>
+                                <CenteredCellFactory/>
+                            </cellFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="92.0" sortable="false" text="" fx:id="activeOrdersCancelColumn">
+                            <cellFactory>
+                                <CenteredCellFactory/>
+                            </cellFactory>
+                        </TableColumn>
+                    </columns>
+                </TableView>
+            </children>
+        </Pane>
+        <Pane layoutX="9.0" layoutY="241.0" prefHeight="243.0" prefWidth="560.0">
+            <children>
+                <TextField fx:id="tradeAmountValue" layoutX="14.0" layoutY="39.0" prefHeight="25.0" prefWidth="140.0"/>
+                <ChoiceBox fx:id="tradeCurrencyType" layoutX="162.0" layoutY="42.0" prefWidth="100.0">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Item 1"/>
+                            <String fx:value="Item 2"/>
+                            <String fx:value="Item 3"/>
+                        </FXCollections>
+                    </items>
+                </ChoiceBox>
+                <TextField fx:id="tradePriceValue" layoutX="284.0" layoutY="39.0" prefHeight="25.0" prefWidth="140.0"/>
+                <ChoiceBox id="tradeCurrencyPriceValue" fx:id="tradePriceCurrencyType" layoutX="442.0" layoutY="42.0"
+                           prefWidth="100.0">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Item 1"/>
+                            <String fx:value="Item 2"/>
+                            <String fx:value="Item 3"/>
+                        </FXCollections>
+                    </items>
+                </ChoiceBox>
+                <Label layoutX="60.0" layoutY="16.0" text="Amount" textAlignment="CENTER">
+                    <font>
+                        <Font name="System Bold" size="12.0" fx:id="x2"/>
+                    </font>
+                </Label>
+                <Label font="$x2" layoutX="185.0" layoutY="16.0" text="Currency" textAlignment="CENTER"/>
+                <Label font="$x2" layoutX="339.0" layoutY="16.0" text="Price" textAlignment="CENTER"/>
+                <Label font="$x2" layoutX="465.0" layoutY="16.0" text="Currency" textAlignment="CENTER"/>
+                <TextArea fx:id="logField" editable="false" layoutX="14.0" layoutY="131.0" prefHeight="98.0"
+                          prefWidth="528.0" wrapText="true"/>
+                <Button fx:id="buyButton" layoutX="59.0" layoutY="94.0" mnemonicParsing="false"
+                        onAction="#makeTradeRequest" prefWidth="170.0" text="BUY"/>
+                <Button fx:id="sellButton" layoutX="339.0" layoutY="94.0" mnemonicParsing="false"
+                        onAction="#makeTradeRequest" prefWidth="170.0" text="SELL"/>
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  ~ BTC-e client for JavaFX
+  ~ Copyright (C) 2014  QuarkDev Solutions <quarkdev.solutions@gmail.com>
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<?import com.QuarkLabs.BTCeClientJavaFX.cellfactories.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity"
+            minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0"
+            xmlns="http://javafx.com/javafx/2.2" fx:controller="com.QuarkLabs.BTCeClientJavaFX.PublicTradesController">
+    <children>
+        <TableView id="PublicTradesTable" fx:id="publicTradesTable" prefHeight="400.0" prefWidth="700.0"
+                   AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                   AnchorPane.topAnchor="0.0">
+            <columns>
+                <TableColumn prefWidth="100.0" text="Date" fx:id="publicTradesTableDateColumn">
+                    <cellFactory>
+                        <CenteredCellFactory/>
+                    </cellFactory>
+                </TableColumn>
+
+                <TableColumn prefWidth="100.0" text="Price" fx:id="publicTradesTablePriceColumn">
+                    <cellFactory>
+                        <CenteredCellFactory decimal="true"/>
+                    </cellFactory>
+                </TableColumn>
+                <TableColumn prefWidth="100.0" text="Amount" fx:id="publicTradesTableAmountColumn">
+                    <cellFactory>
+                        <CenteredCellFactory decimal="true"/>
+                    </cellFactory>
+                </TableColumn>
+                <TableColumn prefWidth="100.0" text="TID" fx:id="publicTradesTableTIDColumn">
+                    <cellFactory>
+                        <CenteredCellFactory/>
+                    </cellFactory>
+                </TableColumn>
+                <TableColumn prefWidth="100.0" text="Price Currency" fx:id="publicTradesTablePriceCurrencyColumn">
+                    <cellFactory>
+                        <CenteredCellFactory uppercase="true" bold="true"/>
+                    </cellFactory>
+                </TableColumn>
+                <TableColumn prefWidth="100.0" text="Item" fx:id="publicTradesTableItemColumn">
+                    <cellFactory>
+                        <CenteredCellFactory uppercase="true" bold="true"/>
+                    </cellFactory>
+                </TableColumn>
+                <TableColumn prefWidth="100.0" text="Trade Type" fx:id="publicTradesTableTradeTypeColumn">
+                    <cellFactory>
+                        <CenteredCellFactory uppercase="true"/>
+                    </cellFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>

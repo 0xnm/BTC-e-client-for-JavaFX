@@ -1,0 +1,45 @@
+<?xml version="1.1" encoding="UTF-8" ?>
+<exchange>
+    <currencies>
+        <currency>BTC</currency>
+        <currency>LTC</currency>
+        <currency>NMC</currency>
+        <currency>NVC</currency>
+        <currency>XPM</currency>
+        <currency>TRC</currency>
+        <currency>PPC</currency>
+        <currency>FTC</currency>
+        <currency>USD</currency>
+        <currency>GBP</currency>
+        <currency>CNH</currency>
+        <currency>EUR</currency>
+        <currency>RUR</currency>
+    </currencies>
+    <pairs>
+        <pair>BTC/USD</pair>
+        <pair>BTC/RUR</pair>
+        <pair>BTC/EUR</pair>
+        <pair>BTC/CNH</pair>
+        <pair>BTC/GBP</pair>
+        <pair>LTC/BTC</pair>
+        <pair>LTC/USD</pair>
+        <pair>LTC/RUR</pair>
+        <pair>LTC/EUR</pair>
+        <pair>LTC/CNH</pair>
+        <pair>LTC/GBP</pair>
+        <pair>NMC/BTC</pair>
+        <pair>NMC/USD</pair>
+        <pair>NVC/BTC</pair>
+        <pair>NVC/USD</pair>
+        <pair>USD/RUR</pair>
+        <pair>EUR/USD</pair>
+        <pair>EUR/RUR</pair>
+        <pair>USD/CNH</pair>
+        <pair>GBP/USD</pair>
+        <pair>TRC/BTC</pair>
+        <pair>PPC/BTC</pair>
+        <pair>PPC/USD</pair>
+        <pair>FTC/BTC</pair>
+        <pair>XPM/BTC</pair>
+    </pairs>
+</exchange>
