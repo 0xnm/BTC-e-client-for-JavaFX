@@ -67,6 +67,7 @@ public class OrdersBookController {
 
     private ObservableList<OrdersBookEntry> asks = FXCollections.observableArrayList();
     private ObservableList<OrdersBookEntry> bids = FXCollections.observableArrayList();
+    private String pair;
 
 
     @FXML
@@ -91,14 +92,6 @@ public class OrdersBookController {
         bidsTablePriceColumn.setCellValueFactory(new PropertyValueFactory<OrdersBookEntry, Double>("price"));
         bidsTableVolumeColumn.setCellValueFactory(new PropertyValueFactory<OrdersBookEntry, Double>("volume"));
 
-    }
-
-    /**
-     * Loads Orders Book data
-     *
-     * @param pair Currency pair
-     */
-    void injectPair(final String pair) {
         Task<JSONObject> loadOrdersBook = new Task<JSONObject>() {
             @Override
             protected JSONObject call() throws Exception {
@@ -129,6 +122,16 @@ public class OrdersBookController {
         });
         Thread thread = new Thread(loadOrdersBook);
         thread.start();
+
+    }
+
+    /**
+     * Loads Orders Book data
+     *
+     * @param pair Currency pair
+     */
+    void injectPair(String pair) {
+        this.pair = pair;
     }
 
 }

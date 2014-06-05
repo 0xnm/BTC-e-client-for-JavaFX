@@ -75,6 +75,7 @@ public class PublicTradesController {
     private TableColumn<PublicTrade, String> publicTradesTableTradeTypeColumn;
 
     private ObservableList<PublicTrade> publicTrades = FXCollections.observableArrayList();
+    private String pair;
 
 
     @FXML
@@ -106,14 +107,7 @@ public class PublicTradesController {
         publicTradesTablePriceCurrencyColumn.setCellValueFactory(new PropertyValueFactory<PublicTrade, String>("priceCurrency"));
         publicTradesTableTIDColumn.setCellValueFactory(new PropertyValueFactory<PublicTrade, Long>("tid"));
         publicTradesTableTradeTypeColumn.setCellValueFactory(new PropertyValueFactory<PublicTrade, String>("tradeType"));
-    }
 
-    /**
-     * Loads public trades data
-     *
-     * @param pair Currency pair
-     */
-    void injectPair(final String pair) {
         Task<JSONArray> loadPublicTrades = new Task<JSONArray>() {
             @Override
             protected JSONArray call() throws Exception {
@@ -141,5 +135,14 @@ public class PublicTradesController {
         });
         Thread thread = new Thread(loadPublicTrades);
         thread.start();
+    }
+
+    /**
+     * Loads public trades data
+     *
+     * @param pair Currency pair
+     */
+    void injectPair(final String pair) {
+        this.pair = pair;
     }
 }
